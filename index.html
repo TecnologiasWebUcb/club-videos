@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club de Videos - API TMDB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__logo">🎬 Club de Videos</h1>
+        <button class="header__toggle" id="theme-toggle" aria-label="Cambiar tema">🌙</button>
+    </header>
+    
+    <main class="main">
+        <section class="search-section">
+            <input 
+                class="search-section__input" 
+                type="text" 
+                id="search" 
+                placeholder="🔍 Buscar películas...">
+            <button 
+                class="search-section__clear" 
+                id="clear-search">
+                ✖ Limpiar
+            </button>
+        </section>
+        <section class="results-header">
+            <h2 class="results-header__title" id="results-title">
+                Películas Populares
+            </h2>
+            <p class="results-header__count" id="results-count"></p>
+        </section>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="loading__spinner"></div>
+            <p class="loading__text">Cargando películas...</p>
+        </div>
+        <div class="error" id="error" style="display: none;">
+            <p class="error__icon">😢</p>
+            <p class="error__message" id="error-message"></p>
+            <button class="error__retry" id="retry-btn">
+                🔄 Intentar de nuevo
+            </button>
+        </div>
+        <section class="movies">
+            <div class="movies__grid" id="movies-grid"></div>
+        </section>
+        <section class="pagination">
+            <button class="pagination__btn" id="prev-page" disabled>
+                ← Anterior
+            </button>
+            <span class="pagination__info" id="page-info">Página 1</span>
+            <button class="pagination__btn" id="next-page">
+                Siguiente →
+            </button>
+        </section>
+        
+    </main>
+    <div class="modal" id="movie-modal">
+        <div class="modal__overlay" id="modal-overlay"></div>
+        <div class="modal__content">
+            <!-- Botón para cerrar el modal -->
+            <button class="modal__close" id="modal-close">✖</button>
+            <div class="modal__body" id="modal-body"></div>
+        </div>
+    </div>
+    <div class="notification" id="notification"></div>
+    <script src="app.js"></script>
+</body>
+</html>
